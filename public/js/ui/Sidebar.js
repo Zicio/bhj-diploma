@@ -42,8 +42,8 @@ class Sidebar {
         Modal.open(App.getModal('login'));
       }
       else if (e.target.closest('.menu-item_logout')) {
-        User.logout(); //дописать метод и отправить запрос
-        App.setState('init');
+        User.logout();
+        App.setState('init'); //вызвать после успешного выхода (response.success = true)
       }
     })
   }
