@@ -38,7 +38,7 @@ class Modal {
    * */
   onClose(e) {
       e.preventDefault();
-      if (e.target.dataset.dismiss = 'modal') {
+      if (e.target.dataset.dismiss === 'modal') {
         this.close();
       }
   }
