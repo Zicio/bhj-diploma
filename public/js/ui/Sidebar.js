@@ -37,10 +37,10 @@ class Sidebar {
     document.addEventListener('click', (e) => {
       e.preventDefault();
       if (e.target.closest('.menu-item_register')) {
-        Modal.open(App.getModal('register').element);
+        App.getModal('register').open();
       }
       else if (e.target.closest('.menu-item_login')) {
-        Modal.open(App.getModal('login').element);
+        App.getModal('login').open();
       }
       else if (e.target.closest('.menu-item_logout')) {
         User.logout();
