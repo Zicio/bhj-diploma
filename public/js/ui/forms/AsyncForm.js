@@ -29,11 +29,9 @@ class AsyncForm {
    * вызывает метод submit()
    * */
   registerEvents() {
-    this.element.addEventListener('click', (e) => {
-      if (e.target.classlist.contains('btn-primary')) {
+    this.element.addEventListener('submit', (e) => {
         e.preventDefault();
         this.submit();
-      }
     })
   }
 
@@ -46,9 +44,10 @@ class AsyncForm {
    * */
   getData() {
     const data = {};
-    const inputs = this.element.querySelectorAll('.form-control');
-    for (const input of inputs) {
-      data[input.name] = input.value;
+    const formData = new FormData(this.element);
+    const entries = formData.entries();
+    for (let item of entries) {
+      data[item[0]] = item[1];
     }
     return data;
   }

@@ -35,11 +35,12 @@ class Sidebar {
    * */
   static initAuthLinks() {
     document.addEventListener('click', (e) => {
+      e.preventDefault();
       if (e.target.closest('.menu-item_register')) {
-        Modal.open(App.getModal('register'));
+        Modal.open(App.getModal('register').element);
       }
       else if (e.target.closest('.menu-item_login')) {
-        Modal.open(App.getModal('login'));
+        Modal.open(App.getModal('login').element);
       }
       else if (e.target.closest('.menu-item_logout')) {
         User.logout();

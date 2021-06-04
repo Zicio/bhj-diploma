@@ -7,7 +7,7 @@ const createRequest = (options = {}) => {
     xhr.responseType ='json';
     if (options.method === 'GET') {
         try {
-            xhr.open('GET', `${options.url}?mail=${options.data.mail}&password=${options.data.password}`);
+            xhr.open('GET', `${options.url}?${Object.keys(options.data)[0]}=${Object.values(options.data)[0]}&${Object.keys(options.data)[1]}=${Object.values(options.data)[1]}`);
             xhr.send();
         }
         catch (err) {
@@ -15,7 +15,7 @@ const createRequest = (options = {}) => {
         }
 
     }
-    else if (options.method === 'POST') {
+    else {
         const formData = new FormData;
         formData.append('mail', `${options.data.mail}`);
         formData.append('password', `${options.data.password}`);
@@ -25,10 +25,12 @@ const createRequest = (options = {}) => {
         }
         catch(err) {
             alert(err);
-        }
-        
+        }  
     }
+    
+    const response = xhr.response;
     xhr.onload = () => {
+        console.log(response);
         options.callback(null, response);
     }
     xhr.onerror = () => {
