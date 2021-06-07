@@ -40,7 +40,7 @@ class Modal {
    * Закрывает текущее окно (Modal.close())
    * */
   onClose(e) {
-    if (e.target.dataset.dismiss === 'modal') {
+    if (e.target.dataset.dismiss === 'modal' || e.target.closest('.close')) {
       this.close();
     }
   }

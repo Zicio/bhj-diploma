@@ -6,8 +6,13 @@ const createRequest = (options = {}) => {
     const xhr = new XMLHttpRequest;
     xhr.responseType ='json';
     if (options.method === 'GET') {
+        let str = `${options.url}?`;
+        for (const option in options.data) {
+            str += `${option}=${options.data[option]}&`;
+        }
+        const url = str.slice(0, -1);
         try {
-            xhr.open('GET', `${options.url}?${Object.keys(options.data)[0]}=${Object.values(options.data)[0]}&${Object.keys(options.data)[1]}=${Object.values(options.data)[1]}`);
+            xhr.open('GET', url);
             xhr.send();
         }
         catch (err) {
@@ -17,8 +22,9 @@ const createRequest = (options = {}) => {
     }
     else {
         const formData = new FormData;
-        formData.append('mail', `${options.data.mail}`);
-        formData.append('password', `${options.data.password}`);
+        for (const option in options.data) {
+            formData.append(`${option}`, `${options.data[option]}`);
+        }
         try {
             xhr.open('POST', `${options.url}`);
             xhr.send(formData);
@@ -31,9 +37,9 @@ const createRequest = (options = {}) => {
     const response = xhr.response;
     xhr.onload = () => {
         console.log(response);
-        options.callback(null, response);
+        //options.callback(null, response);
     }
     xhr.onerror = () => {
-        options.callback(response.error, response);
+        //options.callback(response.error, response);
     }
 };
