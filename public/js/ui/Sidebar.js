@@ -34,7 +34,7 @@ class Sidebar {
    * выходу устанавливает App.setState( 'init' )
    * */
   static initAuthLinks() {
-    document.addEventListener('click', (e) => {
+    document.querySelector('.sidebar').addEventListener('click', (e) => {
       e.preventDefault();
       if (e.target.closest('.menu-item_register')) {
         App.getModal('register').open();
@@ -43,8 +43,12 @@ class Sidebar {
         App.getModal('login').open();
       }
       else if (e.target.closest('.menu-item_logout')) {
-        User.logout();
-        App.setState('init'); //вызвать после успешного выхода (response.success = true)
+        const data = User.current();
+        User.logout(data, (err, response) => {
+          if (response && response.success) {
+            App.setState('init');
+          }
+        });
       }
     })
   }

@@ -4,6 +4,8 @@
  * Имеет свойство URL, равное '/user'.
  * */
 class User {
+  static URL = 'http://localhost:8000/user';
+
   /**
    * Устанавливает текущего пользователя в
    * локальном хранилище.
@@ -36,7 +38,22 @@ class User {
    * авторизованном пользователе.
    * */
   static fetch(callback) {
-
+    const data = this.current();
+    createRequest({
+      url: this.URL + '/current',
+      method: 'GET',
+      responseType: 'json',
+      data,
+      callback: (err, response) => {
+        if (response && response.user) {
+          this.setCurrent(response.user);
+        }
+        else {
+          this.unsetCurrent();
+        }
+        callback(err, response);
+      }
+    });
   }
 
   /**
@@ -86,6 +103,17 @@ class User {
    * выхода необходимо вызвать метод User.unsetCurrent
    * */
   static logout( data, callback) {
-
+    createRequest({
+      url: this.URL + '/logout',
+      method: 'POST',
+      responseType: 'json',
+      data,
+      callback: (err, response) => {
+        if (response && response.user) {
+          this.unsetCurrent();
+        }
+        callback(err, response);
+      }
+    });
   }
 }

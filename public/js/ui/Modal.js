@@ -30,8 +30,10 @@ class Modal {
    * */
   registerEvents() {
     this.element.addEventListener('click', (e) => {
-      e.preventDefault();
-      this.onClose(e);
+      if (e.target.dataset.dismiss === 'modal' || e.target.closest('.close')) {
+        e.preventDefault();
+        this.onClose();
+      }
     });
   }
 
@@ -39,10 +41,8 @@ class Modal {
    * Срабатывает после нажатия на элементы, закрывающие окно.
    * Закрывает текущее окно (Modal.close())
    * */
-  onClose(e) {
-    if (e.target.dataset.dismiss === 'modal' || e.target.closest('.close')) {
-      this.close();
-    }
+  onClose() {
+    this.close();
   }
   /**
    * Открывает окно: устанавливает CSS-свойство display

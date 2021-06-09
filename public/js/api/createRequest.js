@@ -34,12 +34,11 @@ const createRequest = (options = {}) => {
         }  
     }
     
-    const response = xhr.response;
     xhr.onload = () => {
-        console.log(response);
-        //options.callback(null, response);
+        console.log(xhr.response);
+        options.callback(null, xhr.response);
     }
     xhr.onerror = () => {
-        //options.callback(response.error, response);
+        options.callback(xhr.response.error, xhr.response);
     }
 };
