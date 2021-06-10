@@ -26,7 +26,7 @@ const createRequest = (options = {}) => {
             formData.append(`${option}`, `${options.data[option]}`);
         }
         try {
-            xhr.open('POST', `${options.url}`);
+            xhr.open(`${options.method}`, `${options.url}`);
             xhr.send(formData);
         }
         catch(err) {
