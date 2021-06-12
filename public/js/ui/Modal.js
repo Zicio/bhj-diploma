@@ -15,7 +15,6 @@ class Modal {
     if(!element) {
       throw new Error('Элемент не существует');
     }
-
     else {
       this.element = element;
 

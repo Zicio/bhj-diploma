@@ -11,14 +11,21 @@ class TransactionsPage {
    * через registerEvents()
    * */
   constructor( element ) {
+    if (!element) {
+      throw new Error('Элемент не существует');
+    }
+    else {
+      this.element = element;
 
+      this.registerEvents();
+    }
   }
 
   /**
    * Вызывает метод render для отрисовки страницы
    * */
   update() {
-
+    //this.render(options); //где взять options???
   }
 
   /**
@@ -28,7 +35,14 @@ class TransactionsPage {
    * TransactionsPage.removeAccount соответственно
    * */
   registerEvents() {
-
+    this.element.addEventListener('click', (e) => {
+      if (e.target.classList.contains('remove-account')) {
+        this.removeAccount();
+      }
+      else if (e.target.classList.contains('transaction__remove')) {
+        this.removeTransaction(e.target.dataset.id);
+      }
+    });
   }
 
   /**
@@ -51,7 +65,7 @@ class TransactionsPage {
    * либо обновляйте текущую страницу (метод update) и виджет со счетами
    * */
   removeTransaction( id ) {
-
+ 
   }
 
   /**
@@ -61,6 +75,16 @@ class TransactionsPage {
    * в TransactionsPage.renderTransactions()
    * */
   render(options){
+    if (!options) {
+      return;
+    }
+    Account.get(options['account_id'], (err, response) => {
+      if (response) {
+        this.renderTitle(response.name);
+      }
+      
+    });
+    
 
   }
 
