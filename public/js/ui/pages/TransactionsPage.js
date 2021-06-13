@@ -84,7 +84,7 @@ class TransactionsPage {
     if (!options) {
       return;
     }
-    this.lastOptions = options; //где взять options???
+    this.lastOptions = options;
     Account.get(options['account_id'], (err, response) => {
       if (response) {
         this.renderTitle(response.name);
