@@ -180,6 +180,24 @@
       "sum": 300000,
       "type": "expense",
       "user_id": "1"
+    },
+    {
+      "id": "dhrqjab2kkpvhbpp0",
+      "type": "income",
+      "name": "Булочка",
+      "sum": 29,
+      "account_id": "dhrqjab48kpra7b2a",
+      "user_id": "dhrqja3ikkppp85y5",
+      "created_at": "2021-06-13T17:46:31.764Z"
+    },
+    {
+      "id": "dhrqja5f4kpvhce9u",
+      "type": "expense",
+      "name": "Булочка",
+      "sum": 29,
+      "account_id": "dhrqjab48kpra7b2a",
+      "user_id": "dhrqja3ikkppp85y5",
+      "created_at": "2021-06-13T17:47:03.617Z"
     }
   ]
 }
