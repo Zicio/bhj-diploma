@@ -38,11 +38,6 @@
       "name": "Сбербанк",
       "user_id": "dhrqja3ikkppp85y5",
       "id": "54buv5kkkprw307p"
-    },
-    {
-      "name": "Открытие",
-      "user_id": "dhrqja3ikkppp85y5",
-      "id": "dhrqjabcckptzws8x"
     }
   ],
   "transactions": [
@@ -182,22 +177,22 @@
       "user_id": "1"
     },
     {
-      "id": "dhrqjab2kkpvhbpp0",
+      "id": "dhrqja1w8kpwyd321",
       "type": "income",
-      "name": "Булочка",
-      "sum": 29,
-      "account_id": "dhrqjab48kpra7b2a",
+      "name": "Зарплата",
+      "sum": 20000,
+      "account_id": "54buv5kkkprw307p",
       "user_id": "dhrqja3ikkppp85y5",
-      "created_at": "2021-06-13T17:46:31.764Z"
+      "created_at": "2021-06-14T18:31:15.384Z"
     },
     {
-      "id": "dhrqja5f4kpvhce9u",
+      "id": "dhrqja5x0kpwygc6z",
       "type": "expense",
-      "name": "Булочка",
-      "sum": 29,
+      "name": "Коммуналка",
+      "sum": 3500,
       "account_id": "dhrqjab48kpra7b2a",
       "user_id": "dhrqja3ikkppp85y5",
-      "created_at": "2021-06-13T17:47:03.617Z"
+      "created_at": "2021-06-14T18:33:47.194Z"
     }
   ]
 }

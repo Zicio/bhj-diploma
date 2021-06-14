@@ -4,19 +4,16 @@
  * Имеет свойство URL со значением '/account'
  * */
 class Account extends Entity {
-  static URL = 'http://localhost:8000/account';
+  static URL = '/account';
   /**
    * Получает информацию о счёте
    * */
-  static get(id = '', callback){
-    const data = {
-      account_id: id,
-    }
+  static get(id = '', callback) {
     createRequest({
-      url: this.URL,
+      url: `${this.URL}/${id}`,
       method: 'GET',
       responseType: 'json',
-      data,
+      data: null,
       callback: (err, response) => {
         callback(err, response);
       }
