@@ -186,13 +186,40 @@
       "created_at": "2021-06-14T18:31:15.384Z"
     },
     {
-      "id": "dhrqja5x0kpwygc6z",
+      "id": "54buv6ggkpxr7f58",
       "type": "expense",
-      "name": "Коммуналка",
-      "sum": 3500,
+      "name": "Чай",
+      "sum": 20,
+      "account_id": "54buv5kkkprw307p",
+      "user_id": "dhrqja3ikkppp85y5",
+      "created_at": "2021-06-15T07:58:39.979Z"
+    },
+    {
+      "id": "54buv45ckpxtlve7",
+      "type": "income",
+      "name": "Подработка",
+      "sum": 2200,
       "account_id": "dhrqjab48kpra7b2a",
       "user_id": "dhrqja3ikkppp85y5",
-      "created_at": "2021-06-14T18:33:47.194Z"
+      "created_at": "2021-06-15T09:05:53.454Z"
+    },
+    {
+      "id": "54buv7rckpxtxgas",
+      "type": "income",
+      "name": "Получка",
+      "sum": 10000,
+      "account_id": "dhrqjab48kpra7b2a",
+      "user_id": "dhrqja3ikkppp85y5",
+      "created_at": "2021-06-15T09:14:53.763Z"
+    },
+    {
+      "id": "54buv6q4kpxtz6se",
+      "type": "expense",
+      "name": "Обед",
+      "sum": 200,
+      "account_id": "54buv5kkkprw307p",
+      "user_id": "dhrqja3ikkppp85y5",
+      "created_at": "2021-06-15T09:16:14.749Z"
     }
   ]
 }

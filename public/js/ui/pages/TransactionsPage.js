@@ -65,6 +65,7 @@ class TransactionsPage {
       Account.remove(data, (err, response) => {
         if (response && response.success) {
           App.updateWidgets();
+          App.updateForms();
           this.clear();
         }
       });
@@ -137,7 +138,9 @@ class TransactionsPage {
   formatDate(date){
     const newDate = new Date(date);
     const allMonths = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
-    return `${newDate.getDate()} ${allMonths[newDate.getMonth()]} ${newDate.getFullYear()} г. в ${newDate.getHours()}:${newDate.getMinutes()}`;
+    const hours = +newDate.getHours() < 10 ? `0${newDate.getHours()}` : newDate.getHours();
+    const minutes = +newDate.getMinutes() < 10 ? `0${newDate.getMinutes()}` : newDate.getMinutes();
+    return `${newDate.getDate()} ${allMonths[newDate.getMonth()]} ${newDate.getFullYear()} г. в ${hours}:${minutes}`;
   }
 
   /**
@@ -178,7 +181,7 @@ class TransactionsPage {
       content.firstChild.remove();
     }
     for (const item of data) {
-      content.insertAdjacentHTML('beforeend', this.getTransactionHTML(item));
+      content.insertAdjacentHTML('afterbegin', this.getTransactionHTML(item));
     }
   }
 }
