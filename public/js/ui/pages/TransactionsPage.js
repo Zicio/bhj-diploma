@@ -40,8 +40,8 @@ class TransactionsPage {
       if (e.target.classList.contains('remove-account')) {
         this.removeAccount();
       }
-      else if (e.target.closest('.transaction__controls')) {
-        const data = {id: e.target.dataset.id};
+      else if (e.target.closest('.transaction__remove')) {
+        const data = {id: e.target.closest('.transaction__remove').dataset.id};
         this.removeTransaction(data);
       }
     });
